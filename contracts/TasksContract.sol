@@ -17,7 +17,7 @@ contract TasksContract is Ownable {
         bool done;
         uint256 createdAt;
     }
-
+//Con el evento puedo recibir la informacion de la tarea creada
     event TaskCreated(
         uint256 id,
         string title,
@@ -25,8 +25,9 @@ contract TasksContract is Ownable {
         bool done,
         uint256 createdAt
     );
+//Saber si la tarea fue actualizada
     event TaskToggledDone(uint256 id, bool done);
-
+ //busqueda de tarea
     mapping(uint256 => Task) public tasks;
 
     constructor() {
@@ -35,6 +36,7 @@ contract TasksContract is Ownable {
 
     function createTask(string memory _title, string memory _description) public onlyOwner {
         tasksCounter = tasksCounter.add(1);//usando SafeMath
+       //Tarea agregada a la lista  
         tasks[tasksCounter] = Task(
             tasksCounter,
             _title,
@@ -42,6 +44,7 @@ contract TasksContract is Ownable {
             false,
             block.timestamp
         );
+    //Emit = devuelve la tarea 
         emit TaskCreated(
             tasksCounter,
             _title,
@@ -50,7 +53,7 @@ contract TasksContract is Ownable {
             block.timestamp
         );
     }
-
+// actualizando la tarea    
     function toggleDone(uint256 _id) public onlyOwner {
         Task memory _task = tasks[_id];
         _task.done = !_task.done;
