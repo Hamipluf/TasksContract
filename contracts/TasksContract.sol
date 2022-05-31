@@ -1,10 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.6;
+import "./safemath.sol";
+
 
 contract TasksContract {
-    uint256 public tasksCounter = 0;
+  using SafeMath for uint256;  //definiendo SafeMath para cualquier tipo de uint
+ 
+    uint256 public tasksCounter = 0;    //Definicion tarea
 
-    struct Task {
+    struct Task {//Enlistado de tareas 
         uint256 id;
         string title;
         string description;
@@ -28,7 +32,7 @@ contract TasksContract {
     }
 
     function createTask(string memory _title, string memory _description) public {
-        tasksCounter++;
+        tasksCounter = tasksCounter.add(1);//usando SafeMath
         tasks[tasksCounter] = Task(
             tasksCounter,
             _title,
