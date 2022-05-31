@@ -1,9 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.6;
 import "./safemath.sol";
+import "./Ownable.sol";
 
 
-contract TasksContract {
+contract TasksContract is Ownable {
+
   using SafeMath for uint256;  //definiendo SafeMath para cualquier tipo de uint
  
     uint256 public tasksCounter = 0;    //Definicion tarea
@@ -31,7 +33,7 @@ contract TasksContract {
         createTask("my first task", "my first description");
     }
 
-    function createTask(string memory _title, string memory _description) public {
+    function createTask(string memory _title, string memory _description) public onlyOwner {
         tasksCounter = tasksCounter.add(1);//usando SafeMath
         tasks[tasksCounter] = Task(
             tasksCounter,
@@ -49,7 +51,7 @@ contract TasksContract {
         );
     }
 
-    function toggleDone(uint256 _id) public {
+    function toggleDone(uint256 _id) public onlyOwner {
         Task memory _task = tasks[_id];
         _task.done = !_task.done;
         tasks[_id] = _task;
