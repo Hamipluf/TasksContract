@@ -6,18 +6,18 @@ import "./Ownable.sol";
 
 contract TasksContract is Ownable {
 
-  using SafeMath for uint256;  //definiendo SafeMath para cualquier tipo de uint
+  using SafeMath for uint256;  //Defining SafeMath for any type of Uint
  
-    uint256 public tasksCounter = 0;    //Definicion tarea
+    uint256 public tasksCounter = 0;    //Task Definition 
 
-    struct Task {//Enlistado de tareas 
+    struct Task { //List of Task 
         uint256 id;
         string title;
         string description;
         bool done;
         uint256 createdAt;
     }
-//Con el evento puedo recibir la informacion de la tarea creada
+//With this event I can recieve the information of the created task
     event TaskCreated(
         uint256 id,
         string title,
@@ -25,18 +25,18 @@ contract TasksContract is Ownable {
         bool done,
         uint256 createdAt
     );
-//Saber si la tarea fue actualizada
+//Know if the task was Updated
     event TaskToggledDone(uint256 id, bool done);
- //busqueda de tarea
+ //Searching Task
     mapping(uint256 => Task) public tasks;
-
+//create the first task so that when the contract is deployed the task 0 is not empty
     constructor() {
         createTask("my first task", "my first description");
     }
 
     function createTask(string memory _title, string memory _description) public onlyOwner {
-        tasksCounter = tasksCounter.add(1);//usando SafeMath
-       //Tarea agregada a la lista  
+        tasksCounter = tasksCounter.add(1); //Using SafeMath
+       //Task added to the list   
         tasks[tasksCounter] = Task(
             tasksCounter,
             _title,
@@ -44,7 +44,7 @@ contract TasksContract is Ownable {
             false,
             block.timestamp
         );
-    //Emit = devuelve la tarea 
+    //Emit = Return Task
         emit TaskCreated(
             tasksCounter,
             _title,
@@ -53,7 +53,7 @@ contract TasksContract is Ownable {
             block.timestamp
         );
     }
-// actualizando la tarea    
+// Updating task   
     function toggleDone(uint256 _id) public onlyOwner {
         Task memory _task = tasks[_id];
         _task.done = !_task.done;
