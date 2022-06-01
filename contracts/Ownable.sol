@@ -15,7 +15,7 @@ contract Ownable {
    * @dev The Ownable constructor sets the original `owner` of the contract to the sender
    * account.
    */
-   constructor() {//constructor inicializa owner con msg.sender (la persona que lo ha implementado).
+   constructor() { //constructor initializes owner with msg.sender (the person who implemented it).
      _owner = msg.sender;
      emit OwnershipTransferred(address(0), _owner);
    }
@@ -29,7 +29,7 @@ contract Ownable {
   /**
    * @dev Throws if called by any account other than the owner.
    */
-  modifier onlyOwner() {// limita el acceso y que solo el dueño del contrato pueda ejecutar función.
+  modifier onlyOwner() {// limits access and that only the owner of the contract can perform the function.
     require(isOwner());
     _;
   }
