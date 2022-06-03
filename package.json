@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "lite-server": "^2.6.1"
+  },
+  "name": "myfirstcontract",
+  "description": "1. indice\r 2. indice 2",
+  "version": "1.0.0",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hamipluf/TasksContract.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hamipluf/TasksContract/issues"
+  },
+  "homepage": "https://github.com/Hamipluf/TasksContract#readme"
+}
