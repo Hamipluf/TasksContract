@@ -5,20 +5,48 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
-   <title>DApp Task</title>
+   <link rel="stylesheet" href="./main.css">
+   <title>Dapp Task</title>
 </head>
 <body>
-  <div class="container py-5">
-     <div calss="row">
-         <div class="col-md-4 bg-info">
-         <h1>DApp</h1>  
-         </div>
-         <div class="col-md-8 bg-warning">
-          Tasks List my List
-     </div>
+      <div class="conteiner py-5 px-5">
+         <div class="row">
+            <div class="col-md-4">
+              
+              
+               <div class="card-body  rounded-0 nb-4 bg-dark">
+               <h1>DappTask</h1>
+               <em><h6 class="text-muted">Destentralized Task App</h6></em>
+               <strong><span>Wallet</span></strong>
+               <em><span>1233456789</span></em>
+            </div><br>
 
-     </div>
-  
-  </div>
+            <form class="card-body bg-dark rounded-0">
+               <h4>Create a Task </h4>
+
+               <input type="text" placeholder="Write your awesome task" class="form-control bg-dark text-white rounded-0 border-0"><br>
+
+               <textarea rows="2" class="form-control bg-dark text-white rounded-0" placeholder="Today I am going to do..."></textarea>
+               
+               <button class="btn btn-primary">
+                  Save
+               </button>
+
+            </form>
+            
+
+         </div>
+
+            <div class="col-md-8">
+               <div class="card-body bg-secondary rounded-0">
+              <h3><em>task list</em></h3>
+              </div>
+            </div>
+         </div>
+    </div>
+
+<!--Scripts -->
+<script src="./app.js"></script>
+    
 </body>
 </html>
