@@ -21,16 +21,25 @@
                <em><span>1233456789</span></em>
             </div><br>
 
-            <form class="card-body bg-dark rounded-0">
+            <form 
+            class="card-body bg-dark rounded-0" 
+            id="taskForm">
                <h4>Create a Task </h4>
 
-               <input type="text" placeholder="Write your awesome task" class="form-control bg-dark text-white rounded-0 border-0"><br>
+               <input 
+               type="text"
+               name="title"
+               placeholder="Write your awesome task" 
+               class="form-control bg-dark text-white rounded-0 border-0"><br>
 
-               <textarea rows="2" class="form-control bg-dark text-white rounded-0" placeholder="Today I am going to do..."></textarea>
+               <textarea 
+               rows="2" 
+               name="description"
+               class="form-control bg-dark text-white rounded-0" 
+               placeholder="Today I am going to do..."
+               ></textarea>
                
-               <button class="btn btn-primary">
-                  Save
-               </button>
+               <button class="btn btn-primary">Save</button>
 
             </form>
             
@@ -46,7 +55,8 @@
     </div>
 
 <!--Scripts -->
-<script src="./app.js"></script>
-    
-</body>
+    <script src="./libs/@truffle/contract/dist/truffle-contract.min.js"></script> 
+    <script src="./app.js"></script>
+    <script src="./ui.js"></script>
+  </body>
 </html>
